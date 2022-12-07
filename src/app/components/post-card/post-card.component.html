@@ -4,10 +4,11 @@
     <mat-card-content class="card-company-name">{{ this.user?.company?.name }}</mat-card-content>
     <mat-card-content class="card-title">{{ post.title }}</mat-card-content>
     <mat-card-content class="card-body">{{ post.body }}</mat-card-content>
-    <mat-card-actions>
+    <mat-card-actions class="card-button-container">
       <app-button
         (btnClick)="onToggleComments()"
-        text="View Comments"
+        text="{{showComments ? 'Close' : 'View Comments'}}"
+        color="{{showComments ? 'warn' : 'primary'}}"
       ></app-button>
     </mat-card-actions>
     <mat-card-content>

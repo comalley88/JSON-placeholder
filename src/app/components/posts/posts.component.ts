@@ -23,7 +23,7 @@ export class PostsComponent implements OnInit {
     } );    
   }
   ngOnInit() {
-    this.routesService.getMessages().subscribe((res) => this.posts = res);
-    this.routesService.getUsers().subscribe((res) => this.users = res);
+    this.routesService.getMessages().subscribe(res => this.posts = res);
+    this.routesService.getUsers().subscribe(res => this.users = res);
   }
 }

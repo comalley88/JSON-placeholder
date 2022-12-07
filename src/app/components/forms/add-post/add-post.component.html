@@ -1,13 +1,6 @@
 <form class="example-form" (ngSubmit)="onSubmit()" [formGroup]="addPostForm">
+  <h2>Add Post</h2>
     <div>
-      <mat-form-field class="example-full-width">
-        <mat-label for="title">title</mat-label>
-        <input matInput type="text" name="title" formControlName="title" id="title" />
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <mat-label>message</mat-label>
-        <input matInput  type="text" name="body" formControlName="body" id="body" />
-      </mat-form-field>
       <mat-form-field class="example-full-width">
         <mat-label>name</mat-label>
         <input matInput  type="text" name="name" formControlName="name" id="name" />
@@ -16,6 +9,15 @@
         <mat-label>company name</mat-label>
         <input matInput  type="text" name="companyName" formControlName="company" id="companyName" />
       </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label for="title">title</mat-label>
+        <input matInput type="text" name="title" formControlName="title" id="title" />
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>message</mat-label>
+        <input matInput  type="text" name="body" formControlName="body" id="body" />
+      </mat-form-field>
+   
       
       <p>{{ addPostForm.invalid ? 'complete the form to enable button' : null  }}</p>
       <div class="button-wrapper">
