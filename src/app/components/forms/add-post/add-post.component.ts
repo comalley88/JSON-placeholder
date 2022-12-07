@@ -5,7 +5,7 @@ import {
   Validators,
   FormControl
 } from '@angular/forms';
-import {  Post } from '../../models';
+import {  Post } from '../../../models';
 
 @Component({
   selector: 'app-add-post',
@@ -21,7 +21,7 @@ export class AddPostComponent implements OnInit {
     title: ['', Validators.required],
     name: ['', Validators.required],
     body: ['', Validators.required],
-    companyName:['', Validators.required],
+    company:['', Validators.required],
   });
  id!: number
   

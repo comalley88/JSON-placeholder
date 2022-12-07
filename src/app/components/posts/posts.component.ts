@@ -14,7 +14,7 @@ export class PostsComponent implements OnInit {
   constructor(private routesService: RoutesService) {}
 
   handleAddPost(submitPost: ISubmitPost) {
-    this.routesService.addUser({name: submitPost.name, company: submitPost.company}).subscribe((res) => {
+    this.routesService.addUser({name: submitPost.name, company: {name: submitPost.company}}).subscribe((res) => {
       res = {...res, id: submitPost.userId + 1}
       this.users.push({...res, id: submitPost.userId + 1})
       this.routesService.addPost({id: submitPost.id, userId: res.id, title: submitPost.title, body: submitPost.body}).subscribe((res) =>{
