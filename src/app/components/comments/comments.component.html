@@ -1,0 +1,17 @@
+<div *ngIf="showMe">
+  <div class="comments-wrapper" *ngIf="comments">
+    <div *ngFor="let comment of comments">
+      <p class="comment-title">{{ comment.name }}</p>
+      <p class="comment-email">{{ comment.email }}</p>
+      <p >{{ comment.body }}</p>
+    <mat-divider></mat-divider>
+  </div>
+  </div>
+
+  <div class="empty-state-wrapper" *ngIf="comments.length<1">
+    <mat-icon aria-hidden="false" aria-label="add comment icon" fontIcon="library_add"></mat-icon>
+    <p class="empty-state">no Comments, please leave a comment</p>
+  </div>
+    <app-button  (btnClick)="showAddComment()" color="{{ toggleAddComment ? 'warn' : 'primary'}}" text="{{ toggleAddComment ? 'Close' : 'Add Comment'}}"></app-button>
+    <app-add-comment [showMe]="toggleAddComment" (OnAddComment)="handleAddComment($event)" [post]="post"></app-add-comment>
+  </div>

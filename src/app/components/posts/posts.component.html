@@ -1,0 +1,2 @@
+<app-add-post [posts]="posts" (OnAddPost)="handleAddPost($event)"></app-add-post>
+<app-post-card class="card-wrapper" *ngFor="let post of posts" [post]="post" [users]="users"></app-post-card>

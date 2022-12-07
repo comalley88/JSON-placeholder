@@ -1,0 +1,19 @@
+.example-card {
+  width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+.card-name {
+  color: #3f51b5;
+  font-size: medium;
+  font-weight: 700;
+}
+.card-company-name{
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.card-title{
+  font-style: italic;
+  margin-bottom: 5px;
+}
