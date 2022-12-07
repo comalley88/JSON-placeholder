@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
   Validators,
-  FormControl
+  FormControl,
+  FormGroupDirective
 } from '@angular/forms';
 import {  Post } from '../../../models';
 
@@ -13,6 +14,9 @@ import {  Post } from '../../../models';
   styleUrls: ['./add-post.component.css'],
 })
 export class AddPostComponent implements OnInit {
+  
+  @ViewChild(FormGroupDirective) 
+  formGroupDirective!: FormGroupDirective;
   form!: FormGroup;
   @Input()
   posts!: Post[]; 
@@ -36,6 +40,7 @@ export class AddPostComponent implements OnInit {
     const postData = {...this.addPostForm.value, id: id, userId: userId}
   
     this.OnAddPost.emit(postData);
+    this.formGroupDirective.resetForm();
 
   }
 

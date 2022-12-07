@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroupDirective, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { Post } from 'src/app/models';
 
@@ -9,26 +10,28 @@ import { Post } from 'src/app/models';
 })
 
 export class AddCommentComponent implements OnInit {
+  @ViewChild(FormGroupDirective) 
+  formGroupDirective!: FormGroupDirective;
   @Input()
   showMe!: boolean
   @Input()
   post!: Post;
   @Output() OnAddComment = new EventEmitter();
-  email!: string;
-  name!: string;
-  body!: string;
+  addCommentForm = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    name: ['', Validators.required],
+    body: ['', Validators.required],
+  });
  
+  constructor(private fb: FormBuilder) {}
+
   
 onSubmit() {
-  const formData = {
-  postId: this.post.id,
-  name: this.name,
-  email: this.email,
-  body: this.body,
-  }
+  const formData = {...this.addCommentForm.value, postId: this.post.id}
 
   this.OnAddComment.emit(formData);
-  (this.name= ""), (this.email=""), (this.body="")
+  this.formGroupDirective.resetForm();
+ 
 }
 
 ngOnInit() { 

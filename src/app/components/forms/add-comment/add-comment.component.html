@@ -1,20 +1,22 @@
-<form class="example-form" *ngIf="showMe"  (ngSubmit)="onSubmit()">
+<form class="example-form" *ngIf="showMe"  (ngSubmit)="onSubmit()" [formGroup]="addCommentForm">
   <div>
     <mat-form-field class="example-full-width">
-      <mat-label>email</mat-label>
-      <input matInput type="email" name="email" [(ngModel)]="email" id="email" />
+      <mat-label for="email">email</mat-label>
+      <input matInput type="email" name="email" formControlName="email" id="email" />
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <mat-label>name</mat-label>
-      <input matInput type="text" name="comment_name" [(ngModel)]="name" id="comment_name" />
+      <mat-label for="name">name</mat-label>
+      <input matInput type="text" name="comment_name" formControlName="name" id="comment_name" />
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <mat-label>body</mat-label>
-      <textarea matInput type="text" name="body" [(ngModel)]="body" id="body"></textarea>
+      <mat-label for="body">body</mat-label>
+      <textarea matInput type="text" name="body" formControlName="body" id="body"></textarea>
     </mat-form-field>
+    <div class="button-wrapper">
+    <button mat-flat-button color="primary"  type="submit" [disabled]="!addCommentForm.valid">Submit</button>
+    </div>
 
-    <button mat-flat-button color="primary"  type="submit" >Submit</button>
   </div>
 </form>

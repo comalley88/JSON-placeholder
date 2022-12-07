@@ -16,8 +16,11 @@
         <mat-label>company name</mat-label>
         <input matInput  type="text" name="companyName" formControlName="company" id="companyName" />
       </mat-form-field>
-    
-      <p>{{ addPostForm.status === 'INVALID' ? 'complete the form to enable button' : null  }}</p>
-      <button mat-flat-button color="primary"  type="submit" [disabled]="!addPostForm.valid" >Submit</button>
+      
+      <p>{{ addPostForm.invalid ? 'complete the form to enable button' : null  }}</p>
+      <div class="button-wrapper">
+        <button mat-flat-button color="primary"  type="submit" [disabled]="!addPostForm.valid" >Submit</button>
+      </div>
+      
     </div>
   </form>
